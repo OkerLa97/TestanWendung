@@ -5,13 +5,35 @@ import 'package:burger_shop/models/card_order.dart';
 import 'package:burger_shop/pages/payment_page.dart';
 import 'package:burger_shop/utils/app_theme.dart';
 
+final ValueNotifier<ThemeMode> themeModeNotifier =
+    ValueNotifier(ThemeMode.light);
+
 void main() {
-  runApp(
-    MaterialApp(
-      theme: AppTheme.lightTheme,
-      home: const HomePage(),
-    ),
-  );
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeModeNotifier,
+      builder: (context, mode, _) {
+        return MaterialApp(
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: mode,
+          home: HomePage(onToggleTheme: () {
+            themeModeNotifier.value =
+                themeModeNotifier.value == ThemeMode.light
+                    ? ThemeMode.dark
+                    : ThemeMode.light;
+          }),
+        );
+      },
+    );
+  }
 }
 
 // Альтернативная реализация экрана настройки бургера

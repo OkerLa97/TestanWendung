@@ -1,6 +1,11 @@
 # burger_shop
 
-A new Flutter project.
+A sample Flutter burger shop app.
+
+## Theme
+
+The app now supports light and dark themes. Use the sun/moon icon on the home
+screen to toggle between modes.
 
 ## Getting Started
 

@@ -6,7 +6,9 @@ import 'package:burger_shop/models/card_order.dart';
 import 'package:burger_shop/utils/app_theme.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final VoidCallback? onToggleTheme;
+
+  const HomePage({super.key, this.onToggleTheme});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -37,6 +39,10 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         actions: [
+          IconButton(
+            icon: Icon(Icons.brightness_6),
+            onPressed: widget.onToggleTheme,
+          ),
           Padding(
             padding: EdgeInsets.only(right: 20),
             child: CircleAvatar(
