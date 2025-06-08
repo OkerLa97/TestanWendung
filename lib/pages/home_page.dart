@@ -13,13 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<String> categories = [
-    'Burgers',
-    'Pizza',
-    'Snacks',
-    'Desserts',
-    'Drinks',
-  ];
+  List<String> categories = ["Burger", "Pizza", "Salad", "Dessert", "Drinks"];
   int _selectedIndex = 0;
 
   @override
@@ -27,11 +21,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment:
+              CrossAxisAlignment.start, // выравнивание по левому краю
           children: [
             Text('FoodGo', style: TextStyle(fontWeight: FontWeight.bold)),
             Text(
-              'Order your favorite food',
+              'Order your fovorite food',
               style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14),
             ),
           ],
@@ -45,9 +40,8 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-
       body: Padding(
-        padding: const EdgeInsets.all(18.18),
+        padding: EdgeInsets.all(18.18),
         child: Column(
           children: [
             SizedBox(height: 25),
@@ -70,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                     child: TextField(
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
-                          borderSide: BorderSide.none, // Убираем границу
+                          borderSide: BorderSide.none,
                           borderRadius: BorderRadius.circular(18),
                         ),
                         hintText: 'Search for food',
@@ -80,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                SizedBox(width: 25),
+                SizedBox(width: 10),
                 Container(
                   decoration: BoxDecoration(
                     color: AppTheme.primaryColor,
@@ -88,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.3),
-                        blurRadius: 6,
+                        blurRadius: 6, // это размытие тени
                         offset: Offset(0, 3),
                       ),
                     ],
@@ -105,19 +99,18 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ComponentCategories(name: 'All'),
-                ComponentCategories(name: 'Burgers'),
+                ComponentCategories(name: 'Burger'),
                 ComponentCategories(name: 'Pizza'),
                 ComponentCategories(name: 'Snacks'),
               ],
             ),
-
             SizedBox(height: 35),
             Expanded(
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, // количество колонок
-                  childAspectRatio: 0.75, // соотношение сторон
-                  crossAxisSpacing: 15, // расстояние между колонками
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.75,
+                  crossAxisSpacing: 15,
                   mainAxisSpacing: 15,
                 ),
                 itemCount: 4,
@@ -160,10 +153,8 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-
       bottomNavigationBar: CustomBottomNavigationBar(
         selectedIndex: _selectedIndex,
-
         onTap: (index) {
           setState(() {
             _selectedIndex = index;
