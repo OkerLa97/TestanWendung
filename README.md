@@ -7,6 +7,12 @@ A sample Flutter burger shop app.
 The app now supports light and dark themes. Use the sun/moon icon on the home
 screen to toggle between modes.
 
+## Authentication Flow
+
+When launching the app you will first see a login screen. From there you can
+navigate to a simple registration form. After logging in or registering the home
+screen is shown.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
