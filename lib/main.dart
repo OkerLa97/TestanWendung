@@ -3,15 +3,63 @@ import 'package:flutter/material.dart';
 import 'package:burger_shop/pages/home_page.dart';
 import 'package:burger_shop/models/card_order.dart';
 import 'package:burger_shop/pages/payment_page.dart';
+import 'package:burger_shop/pages/login_page.dart';
+import 'package:burger_shop/pages/register_page.dart';
 import 'package:burger_shop/utils/app_theme.dart';
 
+final ValueNotifier<ThemeMode> themeModeNotifier =
+    ValueNotifier(ThemeMode.light);
+
 void main() {
-  runApp(
-    MaterialApp(
-      theme: AppTheme.lightTheme,
-      home: const HomePage(),
-    ),
-  );
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool _loggedIn = false;
+  bool _showRegister = false;
+
+  void _toggleTheme() {
+    themeModeNotifier.value = themeModeNotifier.value == ThemeMode.light
+        ? ThemeMode.dark
+        : ThemeMode.light;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeModeNotifier,
+      builder: (context, mode, _) {
+        Widget home;
+        if (_loggedIn) {
+          home = HomePage(onToggleTheme: _toggleTheme);
+        } else if (_showRegister) {
+          home = RegisterPage(
+            onRegisterSuccess: () => setState(() => _loggedIn = true),
+            onShowLogin: () => setState(() => _showRegister = false),
+          );
+        } else {
+          home = LoginPage(
+            onLoginSuccess: () => setState(() => _loggedIn = true),
+            onShowRegister: () => setState(() => _showRegister = true),
+          );
+        }
+
+        return MaterialApp(
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: mode,
+          home: home,
+        );
+      },
+    );
+  }
 }
 
 // Альтернативная реализация экрана настройки бургера
