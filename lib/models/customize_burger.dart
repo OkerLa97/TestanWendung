@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:burger_shop/utils/app_theme.dart';
 
 class CustomizeBurgerScreen extends StatefulWidget {
   const CustomizeBurgerScreen({super.key});
@@ -169,8 +170,8 @@ class _CustomizeBurgerScreenState extends State<CustomizeBurgerScreen> {
                               Expanded(
                                 child: SliderTheme(
                                   data: SliderThemeData(
-                                    thumbColor: Colors.red,
-                                    activeTrackColor: Colors.red,
+                                    thumbColor: AppTheme.primaryColor,
+                                    activeTrackColor: AppTheme.primaryColor,
                                     inactiveTrackColor: Colors.grey[300],
                                     trackHeight: 4,
                                     thumbShape: RoundSliderThumbShape(
@@ -193,7 +194,7 @@ class _CustomizeBurgerScreenState extends State<CustomizeBurgerScreen> {
                                 'Hot',
                                 style: TextStyle(
                                   fontSize: 12,
-                                  color: Colors.red,
+                                  color: AppTheme.primaryColor,
                                 ),
                               ),
                             ],
@@ -214,7 +215,7 @@ class _CustomizeBurgerScreenState extends State<CustomizeBurgerScreen> {
                                 width: 36,
                                 height: 36,
                                 decoration: BoxDecoration(
-                                  color: Colors.red,
+                                  color: AppTheme.primaryColor,
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Center(
@@ -240,7 +241,7 @@ class _CustomizeBurgerScreenState extends State<CustomizeBurgerScreen> {
                                 width: 36,
                                 height: 36,
                                 decoration: BoxDecoration(
-                                  color: Colors.red,
+                                  color: AppTheme.primaryColor,
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Center(
@@ -332,7 +333,7 @@ class _CustomizeBurgerScreenState extends State<CustomizeBurgerScreen> {
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.red.shade700,
+                          color: AppTheme.primaryColor,
                         ),
                       ),
                     ],
@@ -340,7 +341,7 @@ class _CustomizeBurgerScreenState extends State<CustomizeBurgerScreen> {
                   ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
+                      backgroundColor: AppTheme.primaryColor,
                       foregroundColor: Colors.white,
                       padding: EdgeInsets.symmetric(
                         horizontal: 30,
@@ -427,7 +428,7 @@ class _CustomizeBurgerScreenState extends State<CustomizeBurgerScreen> {
                   width: 24,
                   height: 24,
                   decoration: BoxDecoration(
-                    color: isSelected ? Colors.white : Colors.red,
+                    color: isSelected ? Colors.white : AppTheme.primaryColor,
                     shape: BoxShape.circle,
                   ),
                   child: Center(
@@ -506,7 +507,7 @@ class _CustomizeBurgerScreenState extends State<CustomizeBurgerScreen> {
                   width: 24,
                   height: 24,
                   decoration: BoxDecoration(
-                    color: isSelected ? Colors.white : Colors.red,
+                    color: isSelected ? Colors.white : AppTheme.primaryColor,
                     shape: BoxShape.circle,
                   ),
                   child: Center(

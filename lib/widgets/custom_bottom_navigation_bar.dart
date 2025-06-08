@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:burger_shop/utils/app_theme.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   // Параметры для отслеживания выбранного элемента и обработки нажатий
@@ -19,7 +20,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
       height: 80,
       // Оформление панели - красный цвет и закругленные верхние углы
       decoration: BoxDecoration(
-        color: Color(0xFFEF4B4B),
+        color: AppTheme.primaryColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(60),
           topRight: Radius.circular(60),
@@ -84,7 +85,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 // Красная кнопка внутри белого ободка
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Color(0xFFEF4B4B),
+                    color: AppTheme.primaryColor,
                     shape: BoxShape.circle,
                   ),
                   child: Icon(Icons.add, size: 30, color: Colors.white),

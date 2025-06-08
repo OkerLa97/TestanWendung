@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:burger_shop/utils/app_theme.dart';
 
 // Главный виджет страницы оплаты
 class PaymentPage extends StatelessWidget {
@@ -131,7 +132,7 @@ class PaymentPage extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
-                        color: Colors.red,
+                        color: AppTheme.primaryColor,
                       ),
                     ),
                   ],
@@ -144,7 +145,7 @@ class PaymentPage extends StatelessWidget {
                       // Здесь можно добавить обработку оплаты
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF362A2A),
+                      backgroundColor: AppTheme.accentDark,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
                       ),
@@ -177,7 +178,7 @@ class PaymentPage extends StatelessWidget {
   }) {
     return Container(
       decoration: BoxDecoration(
-        color: selected ? Color(0xFF362A2A) : Colors.grey[100],
+        color: selected ? AppTheme.accentDark : Colors.grey[100],
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           if (selected)

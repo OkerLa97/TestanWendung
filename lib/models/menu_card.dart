@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:burger_shop/utils/page_transitions.dart';
 import 'package:burger_shop/main.dart';
+import 'package:burger_shop/utils/app_theme.dart';
 
 class MenuCard extends StatelessWidget {
   final String name;
@@ -84,14 +85,14 @@ class MenuCard extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Colors.redAccent,
+                            color: AppTheme.primaryColor,
                           ),
                         ),
                       ),
                       Container(
                         padding: const EdgeInsets.all(6),
                         decoration: BoxDecoration(
-                          color: Colors.redAccent,
+                          color: AppTheme.primaryColor,
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: const Icon(

@@ -3,9 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:burger_shop/pages/home_page.dart';
 import 'package:burger_shop/models/card_order.dart';
 import 'package:burger_shop/pages/payment_page.dart';
+import 'package:burger_shop/utils/app_theme.dart';
 
 void main() {
-  runApp(const MaterialApp(home: HomePage()));
+  runApp(
+    MaterialApp(
+      theme: AppTheme.lightTheme,
+      home: const HomePage(),
+    ),
+  );
 }
 
 // Альтернативная реализация экрана настройки бургера
@@ -82,7 +88,7 @@ class _BurgerCustomizerPageState extends State<BurgerCustomizerPage> {
                             },
                             min: 0,
                             max: 1,
-                            activeColor: Colors.red,
+                            activeColor: AppTheme.primaryColor,
                           ),
                         ),
                         const Text("Hot"),
@@ -99,7 +105,7 @@ class _BurgerCustomizerPageState extends State<BurgerCustomizerPage> {
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             shape: const CircleBorder(),
-                            backgroundColor: Colors.redAccent,
+                            backgroundColor: AppTheme.primaryColor,
                           ),
                           onPressed: () {
                             setState(() {
@@ -112,7 +118,7 @@ class _BurgerCustomizerPageState extends State<BurgerCustomizerPage> {
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             shape: const CircleBorder(),
-                            backgroundColor: Colors.redAccent,
+                            backgroundColor: AppTheme.primaryColor,
                           ),
                           onPressed: () {
                             setState(() {

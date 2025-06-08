@@ -3,6 +3,7 @@ import 'package:burger_shop/models/menu_card.dart';
 import 'package:burger_shop/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:burger_shop/models/card_order.dart';
+import 'package:burger_shop/utils/app_theme.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -82,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(width: 25),
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.red,
+                    color: AppTheme.primaryColor,
                     borderRadius: BorderRadius.circular(18),
                     boxShadow: [
                       BoxShadow(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:burger_shop/utils/app_theme.dart';
 
 class CardOrder extends StatefulWidget {
   const CardOrder({super.key});
@@ -102,8 +103,8 @@ class _CardOrderState extends State<CardOrder> {
                                 Expanded(
                                   child: SliderTheme(
                                     data: SliderThemeData(
-                                      thumbColor: Colors.red,
-                                      activeTrackColor: Colors.red,
+                                      thumbColor: AppTheme.primaryColor,
+                                      activeTrackColor: AppTheme.primaryColor,
                                       inactiveTrackColor: Colors.grey[300],
                                       trackHeight: 2,
                                       thumbShape: RoundSliderThumbShape(
@@ -122,7 +123,7 @@ class _CardOrderState extends State<CardOrder> {
                                   "Hot",
                                   style: TextStyle(
                                     fontSize: 12,
-                                    color: Colors.red,
+                                  color: AppTheme.primaryColor,
                                   ),
                                 ),
                               ],
@@ -137,7 +138,7 @@ class _CardOrderState extends State<CardOrder> {
                                   width: 40,
                                   height: 40,
                                   decoration: BoxDecoration(
-                                    color: Colors.red,
+                                    color: AppTheme.primaryColor,
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   child: IconButton(
@@ -163,7 +164,7 @@ class _CardOrderState extends State<CardOrder> {
                                   width: 40,
                                   height: 40,
                                   decoration: BoxDecoration(
-                                    color: Colors.red,
+                                    color: AppTheme.primaryColor,
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   child: IconButton(
@@ -197,7 +198,7 @@ class _CardOrderState extends State<CardOrder> {
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
+                        backgroundColor: AppTheme.primaryColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -221,7 +222,7 @@ class _CardOrderState extends State<CardOrder> {
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF362A2A),
+                        backgroundColor: AppTheme.accentDark,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
