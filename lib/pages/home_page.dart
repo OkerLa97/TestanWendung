@@ -4,17 +4,22 @@ import 'package:burger_shop/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:burger_shop/models/card_order.dart';
 import 'package:burger_shop/utils/app_theme.dart';
+import 'package:burger_shop/pages/counter_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../providers/cart_provider.dart';
+import '../pages/cart_page.dart';
+import '../widgets/cart_badge.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends ConsumerStatefulWidget {
   final VoidCallback? onToggleTheme;
 
   const HomePage({super.key, this.onToggleTheme});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  ConsumerState<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends ConsumerState<HomePage> {
   List<String> categories = ["Burger", "Pizza", "Salad", "Dessert", "Drinks"];
   int _selectedIndex = 0;
 
@@ -34,6 +39,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         actions: [
+          const CartBadge(),
           IconButton(
             icon: Icon(Icons.brightness_6),
             onPressed: widget.onToggleTheme,

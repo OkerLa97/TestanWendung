@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:burger_shop/utils/page_transitions.dart';
 import 'package:burger_shop/main.dart';
 import 'package:burger_shop/utils/app_theme.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../providers/cart_provider.dart';
+import '../models/cart_item.dart';
 
-class MenuCard extends StatelessWidget {
+class MenuCard extends ConsumerWidget {
   final String name;
   final String image;
   final String price;
@@ -18,7 +21,7 @@ class MenuCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -89,16 +92,40 @@ class MenuCard extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(6),
-                        decoration: BoxDecoration(
-                          color: AppTheme.primaryColor,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: const Icon(
-                          Icons.add,
-                          color: Colors.white,
-                          size: 16,
+                      GestureDetector(
+                        onTap: () {
+                          // Создаем товар для корзины
+                          final cartItem = CartItem(
+                            id: name.toLowerCase().replaceAll(' ', '_'),
+                            name: name,
+                            image: image,
+                            price: double.parse(price.replaceAll('₽', '')),
+                            description: description,
+                          );
+
+                          // Добавляем в корзину
+                          ref.read(cartProvider.notifier).addItem(cartItem);
+
+                          // Показываем уведомление
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('$name добавлен в корзину!'),
+                              backgroundColor: AppTheme.primaryColor,
+                              duration: const Duration(seconds: 1),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(6),
+                          decoration: BoxDecoration(
+                            color: AppTheme.primaryColor,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: const Icon(
+                            Icons.add,
+                            color: Colors.white,
+                            size: 16,
+                          ),
                         ),
                       ),
                     ],

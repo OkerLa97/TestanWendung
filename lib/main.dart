@@ -6,12 +6,14 @@ import 'package:burger_shop/pages/payment_page.dart';
 import 'package:burger_shop/pages/login_page.dart';
 import 'package:burger_shop/pages/register_page.dart';
 import 'package:burger_shop/utils/app_theme.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final ValueNotifier<ThemeMode> themeModeNotifier =
-    ValueNotifier(ThemeMode.light);
+final ValueNotifier<ThemeMode> themeModeNotifier = ValueNotifier(
+  ThemeMode.light,
+);
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -26,9 +28,10 @@ class _MyAppState extends State<MyApp> {
   bool _showRegister = false;
 
   void _toggleTheme() {
-    themeModeNotifier.value = themeModeNotifier.value == ThemeMode.light
-        ? ThemeMode.dark
-        : ThemeMode.light;
+    themeModeNotifier.value =
+        themeModeNotifier.value == ThemeMode.light
+            ? ThemeMode.dark
+            : ThemeMode.light;
   }
 
   @override
